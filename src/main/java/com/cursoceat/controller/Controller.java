@@ -82,12 +82,17 @@ public class Controller extends HttpServlet implements Validaciones{
 		request.setAttribute("idProducto", idProducto);
 		
 		request.getRequestDispatcher("edicion.jsp").forward(request, response);
-	
+		idProducto = idProducto;
+		listadoProductos.remove(idProducto);
+	   
+		
 	    Producto miProducto = new Producto(nombreMayus(nombre), primeraMayusDes(descripcion), cantidadInt);
+	    
+	  //  listadoProductos.add(miProducto);
 	    
 	    mensaje="Producto editado correctamente";
 	    request.getSession().setAttribute("mensaje", mensaje); 
-		request.getSession().setAttribute("producto", listadoProductos);
+		//request.getSession().setAttribute("producto", listadoProductos);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 	}
